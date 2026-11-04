@@ -25,6 +25,17 @@ nav {
     background-color: #14213d;
     position: sticky;
     top: 0;
+    z-index: 100;
+}
+
+#menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
 nav ul {
@@ -48,11 +59,11 @@ nav a {
     transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
     background-color: #00a6a6;
     color: #14213d;
+    font-weight: bold;
 }
-
 
 main {
     max-width: 1000px;
@@ -67,6 +78,7 @@ section {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     scroll-margin-top: 70px;
+    transition: transform 0.2s ease;
 }
 
 h2 {
@@ -79,8 +91,45 @@ img, video {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
+.home-container img:hover, .project-card img:hover {
+    transform: scale(1.02);
+}
+
+.interests-list li {
+    padding: 8px 12px;
+    margin: 6px 0;
+    background-color: #edf5f7;
+    border-left: 4px solid #00a6a6;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.interests-list li:hover {
+    background-color: #d8ecf0;
+}
+
+.filter-buttons {
+    margin: 15px 0;
+}
+
+.filter-btn {
+    background-color: #edf5f7;
+    border: 1px solid #00a6a6;
+    color: #14213d;
+    padding: 8px 16px;
+    margin-right: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #007f86;
+    color: white;
+}
 
 table {
     width: 100%;
@@ -99,10 +148,83 @@ th {
     color: white;
 }
 
+tbody tr {
+    transition: background-color 0.2s;
+}
+
 tbody tr:nth-child(even) {
     background-color: #edf5f7;
 }
 
+tbody tr:hover {
+    background-color: #d0e7eb;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+}
+
+.badge.beginner {
+    background-color: #28a745;
+}
+
+.badge.learning {
+    background-color: #17a2b8;
+}
+
+.project-card {
+    padding: 15px;
+    border: 1px solid #d5dde5;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd6e0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    background-color: #007f86;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #005f64;
+}
+
+.feedback-msg {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 6px;
+}
 
 footer {
     background-color: #14213d;
@@ -111,34 +233,20 @@ footer {
     padding: 20px;
 }
 
-@media (max-width: 600px) {
-    nav a {
-        padding: 12px;
-    }
-
-    section {
-        padding: 20px;
-    }
-}
-
-
 #backToTop {
     display: none;
     position: fixed;
     bottom: 25px;
     right: 25px;
     z-index: 1000;
-
     width: 45px;
     height: 45px;
     border: none;
     border-radius: 50%;
-
     background-color: #007bff;
     color: white;
     font-size: 24px;
     cursor: pointer;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
 }
@@ -146,4 +254,29 @@ footer {
 #backToTop:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    #menuToggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px 20px;
+        text-align: left;
+    }
+
+    section {
+        padding: 20px;
+    }
 }
