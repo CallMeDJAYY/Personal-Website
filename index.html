@@ -2,109 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header> 
-        <h1> Welcome to My Website</h1>
-        <p> On this website you will learn more about me!</p>
+        <h1>Welcome to My Website</h1>
+        <p>On this website you will learn more about me!</p>
     </header>
+
     <nav>
-        <ul> 
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#About">About</a></li>
-            <li><a href="#Portfolio">Portfolio</a></li>
-            <li><a href="#Contact">Contact</a></li>
+        <button id="menuToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <ul id="navList"> 
+            <li><a href="#Home" class="nav-link active">Home</a></li>
+            <li><a href="#About" class="nav-link">About</a></li>
+            <li><a href="#Portfolio" class="nav-link">Portfolio</a></li>
+            <li><a href="#Contact" class="nav-link">Contact</a></li>
         </ul>
-        </nav>
-<main>
-    <section id="Home">
-        <h2> Home</h2>
-        <img src="images/Face.jpg"
-        alt="A photo representing me"   
-        width="200">
-        <p> Hello My Name is David Francis
-            Welcome to My Personal Website.
-        </p>
-    </section>
-<section id="About">
-    <h2> About Me </h2>
-    <p> I am currently a second year student at the TA Marryshow Community College.</p>
-    <h3> My Interests</h3>
-    <ul>
-    <li> Computers</li>
-    <li> Cricket</li>
-    <li> Games</li>
-    <li> Swimming</li>
-    <li> Doom Scrolling on Social Media</li>
-    </ul>
-</section>
-<button id="backToTop" title="Back to Top" aria-label="Back to top">
-    &#8593;
-</button>
-<section id="Portfolio">
-    <h2> My Portfolio</h2>
-    <h3> My Skills</h3>
+    </nav>
 
-<table> 
-    <tread> 
-        <tr>
-            <th> Skill</th>
-            <th> Level</th>
-            <th> Goal</th>
-        </tr>
-    </tread>
-    <tbody> 
-        <tr>
-            <td> HTML </td>
-            <td> Beginner </td>
-            <td> Buidling simple webpages</td>
-        </tr>
-        <tr> 
-            <td> CSS</td>
-            <td> Beginner</td>
-            <td> Styling Websites</td>
-        </tr>
-        <tr> 
-            <td> GitHub</td>
-            <td> Learning</td>
-            <td> Publishing Websites</td>
-        </tr>
-    </tbody>
-</table>
-<h3> My Project</h3>
-<p> My first ever personal website will demonstrate my HTML and CSS skills.</p>
-</section>
-<section id="Contact">
-    <h2> Contact Me</h2>
-    <p> Email: Davidf6881@tamcc.edu.gd</p>
-    </p>
-</section>
-</main>
-<footer> 
-    <p> &copy; 2026 David Francis. All rights reserved  </p>
-</footer>
-<script>
-    const backToTop = document.getElementById("backToTop");
+    <main>
+        <section id="Home">
+            <h2>Home</h2>
+            <div class="home-container">
+                <img src="images/Face.jpg" alt="A photo representing me" width="200">
+                <p>Hello! My name is David Francis. Welcome to my personal website.</p>
+            </div>
+        </section>
 
-    // Show the button when the user scrolls down
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 200) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-    });
+        <section id="About">
+            <h2>About Me</h2>
+            <p>I am currently a second-year student at the T.A. Marryshow Community College.</p>
+            <h3>My Interests</h3>
+            <ul class="interests-list">
+                <li>Computers</li>
+                <li>Cricket</li>
+                <li>Games</li>
+                <li>Swimming</li>
+                <li>Doom Scrolling on Social Media</li>
+            </ul>
+        </section>
 
-    // Smoothly scroll to the top when clicked
-    backToTop.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+        <section id="Portfolio">
+            <h2>My Portfolio</h2>
+            <h3>My Skills</h3>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Beginner">Beginner</button>
+                <button class="filter-btn" data-filter="Learning">Learning</button>
+            </div>
+
+            <table id="skillsTable"> 
+                <thead> 
+                    <tr>
+                        <th>Skill</th>
+                        <th>Level</th>
+                        <th>Goal</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr data-level="Beginner">
+                        <td>HTML</td>
+                        <td><span class="badge beginner">Beginner</span></td>
+                        <td>Building simple webpages</td>
+                    </tr>
+                    <tr data-level="Beginner"> 
+                        <td>CSS</td>
+                        <td><span class="badge beginner">Beginner</span></td>
+                        <td>Styling Websites</td>
+                    </tr>
+                    <tr data-level="Learning"> 
+                        <td>GitHub</td>
+                        <td><span class="badge learning">Learning</span></td>
+                        <td>Publishing Websites</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>My Project</h3>
+            <div class="project-card">
+                <p>My first ever personal website will demonstrate my HTML and CSS skills.</p>
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="External image showing web development workspace" width="300">
+            </div>
+        </section>
+
+        <section id="Contact">
+            <h2>Contact Me</h2>
+            <p>Email: Davidf6881@tamcc.edu.gd</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="4" required placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div id="formFeedback" class="feedback-msg"></div>
+        </section>
+    </main>
+
+    <button id="backToTop" title="Back to Top" aria-label="Back to top">&#8593;</button>
+
+    <footer> 
+        <p>&copy; 2026 David Francis. All rights reserved</p>
+    </footer>
+
+    <script>
+        const backToTop = document.getElementById("backToTop");
+        const menuToggle = document.getElementById("menuToggle");
+        const navList = document.getElementById("navList");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll("main section");
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const tableRows = document.querySelectorAll("#skillsTable tbody tr");
+        const contactForm = document.getElementById("contactForm");
+        const formFeedback = document.getElementById("formFeedback");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 200) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
         });
-    });
-</script>
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        menuToggle.addEventListener("click", function () {
+            navList.classList.toggle("open");
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+
+                const filter = this.getAttribute("data-filter");
+                tableRows.forEach(row => {
+                    if (filter === "all" || row.getAttribute("data-level") === filter) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            formFeedback.textContent = "Thank you! Your message has been sent successfully.";
+            formFeedback.style.display = "block";
+            contactForm.reset();
+            setTimeout(() => {
+                formFeedback.style.display = "none";
+            }, 4000);
+        });
+    </script>
 </body>
 </html>
