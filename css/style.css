@@ -28,16 +28,6 @@ nav {
     z-index: 100;
 }
 
-#menuToggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
 nav ul {
     list-style: none;
     margin: 0;
@@ -59,10 +49,9 @@ nav a {
     transition: background-color 0.3s, color 0.3s;
 }
 
-nav a:hover, nav a.active {
+nav a:hover {
     background-color: #00a6a6;
     color: #14213d;
-    font-weight: bold;
 }
 
 main {
@@ -78,7 +67,32 @@ section {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     scroll-margin-top: 70px;
-    transition: transform 0.2s ease;
+}
+
+article {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f8fbfd;
+    border: 1px solid #d5dde5;
+}
+
+aside {
+    margin-top: 20px;
+    padding: 16px;
+    border-left: 4px solid #007f86;
+    border-radius: 8px;
+    background-color: #edf5f7;
+}
+
+figure {
+    margin: 16px 0;
+}
+
+figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #455a64;
 }
 
 h2 {
@@ -91,44 +105,6 @@ img, video {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.home-container img:hover, .project-card img:hover {
-    transform: scale(1.02);
-}
-
-.interests-list li {
-    padding: 8px 12px;
-    margin: 6px 0;
-    background-color: #edf5f7;
-    border-left: 4px solid #00a6a6;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.interests-list li:hover {
-    background-color: #d8ecf0;
-}
-
-.filter-buttons {
-    margin: 15px 0;
-}
-
-.filter-btn {
-    background-color: #edf5f7;
-    border: 1px solid #00a6a6;
-    color: #14213d;
-    padding: 8px 16px;
-    margin-right: 8px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    background-color: #007f86;
-    color: white;
 }
 
 table {
@@ -148,82 +124,8 @@ th {
     color: white;
 }
 
-tbody tr {
-    transition: background-color 0.2s;
-}
-
 tbody tr:nth-child(even) {
     background-color: #edf5f7;
-}
-
-tbody tr:hover {
-    background-color: #d0e7eb;
-}
-
-.badge {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: bold;
-    color: white;
-}
-
-.badge.beginner {
-    background-color: #28a745;
-}
-
-.badge.learning {
-    background-color: #17a2b8;
-}
-
-.project-card {
-    padding: 15px;
-    border: 1px solid #d5dde5;
-    border-radius: 8px;
-    background-color: #fafafa;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccd6e0;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.submit-btn {
-    background-color: #007f86;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #005f64;
-}
-
-.feedback-msg {
-    display: none;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 6px;
 }
 
 footer {
@@ -231,6 +133,114 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+/* Toggle helper for show/hide details */
+.hidden {
+    display: none;
+}
+
+/* Form and feature button styles */
+.feature-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.feature-form label {
+    font-weight: bold;
+}
+
+.feature-form input,
+.feature-form select,
+.feature-form textarea {
+    padding: 10px;
+    border: 1px solid #b8c4cf;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.feature-form button,
+#themeToggleBtn,
+#toggleDetailsBtn {
+    align-self: flex-start;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007f86;
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#themeToggleBtn {
+    align-self: center;
+    margin-top: 10px;
+}
+
+.feature-form button:hover,
+#themeToggleBtn:hover,
+#toggleDetailsBtn:hover {
+    background-color: #005f64;
+}
+
+/* Dark mode theme styles */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode section {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode article {
+    background-color: #162032;
+    border-color: #334155;
+}
+
+body.dark-mode aside {
+    background-color: #172a3a;
+    border-left-color: #00a6a6;
+}
+
+body.dark-mode figcaption {
+    color: #cbd5e1;
+}
+
+body.dark-mode th {
+    background-color: #0b1120;
+}
+
+body.dark-mode td {
+    border-color: #334155;
+}
+
+body.dark-mode tbody tr:nth-child(even) {
+    background-color: #273549;
+}
+
+body.dark-mode .feature-form input,
+body.dark-mode .feature-form select,
+body.dark-mode .feature-form textarea {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        padding: 12px;
+    }
+
+    section {
+        padding: 20px;
+    }
 }
 
 #backToTop {
@@ -254,29 +264,4 @@ footer {
 #backToTop:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
-}
-
-@media (max-width: 600px) {
-    #menuToggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul.open {
-        display: flex;
-    }
-
-    nav a {
-        padding: 12px 20px;
-        text-align: left;
-    }
-
-    section {
-        padding: 20px;
-    }
 }
